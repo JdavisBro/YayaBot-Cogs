@@ -133,7 +133,7 @@ class PollButton(discord.ui.Button['Poll']):
     async def callback(self, interaction: discord.Interaction):
         self.view.votes[interaction.user.id] = self.option
         await self.view.check_buttons()
-        await interaction.response.edit_message(content=f"Poll! Ends {self.timeoutS}.\nVote Below:",view=self.view)
+        await interaction.response.edit_message(content=f"Poll! Ends {self.view.timeoutS}.\nVote Below:",view=self.view)
 
 class Poll(discord.ui.View):
     message: discord.Message
